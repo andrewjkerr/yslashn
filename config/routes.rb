@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   resources :users
   resources :events
+  resources :questions
+  resources :answers
 
   # Sessions
   get 'login' => 'sessions#new'

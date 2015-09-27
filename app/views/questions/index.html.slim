@@ -1,0 +1,10 @@
+-provide(:title, 'Questions')
+
+h1 Questions
+
+ul
+- @questions.each do |question|
+    li
+        = question.text
+        |  asked for
+        = link_to question.event.name, question.event
