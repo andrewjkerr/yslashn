@@ -4,8 +4,11 @@ html
     title
       = yield(:title) 
       |  | #{Rails.application.class.parent_name}
+        <!-- Compiled and minified CSS -->
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"
     = csrf_meta_tags
 
   body

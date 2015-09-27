@@ -43,6 +43,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Manage ENV vars
 gem 'figaro', '~> 1.0.0'
 
+# CSS, yo
+gem 'materialize-sass'
+
 group :development, :test do
 
   # Use rspec for testing!
