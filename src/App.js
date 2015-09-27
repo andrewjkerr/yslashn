@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { NICE, SUPER_NICE , BASE_API} from './colors';
+var Router = require('react-router-component');
+var Locations = Router.Locations;
+var Location = Router.Location;
+
 
 class Home extends Component {
   render() {
@@ -18,9 +22,16 @@ class Home extends Component {
   }
 }
 
-class WebApp extends Component {
-
-}
+var App = React.createClass({
+  render: function(){
+    return (
+      <Locations>
+        <Location path="/" handler={Home} />
+        <Location path = "/Search" handler={SearchListing}/>
+      </Locations>
+      )
+  }
+})
 
 var Search = React.createClass({
   render: function(){
@@ -71,7 +82,7 @@ var SearchListing = React.createClass({
             <ul> 
 
             { events.map(function(l){
-              return <li id={l.id}><a href={l.id}>{l.name}</a></li>
+              return <li id={l.id}><a href='events/{l.id}'>{l.name}</a></li>
             }) }
 
             </ul>
@@ -82,39 +93,20 @@ var SearchListing = React.createClass({
         }
       })
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      route: window.location.hash.substr(1)
-    }
+var IndividualEventPage = React.createClass({
+  getInitialState:function(){
+    return {name: '', questions:[]};
   },
 
-  componentDidMount() {
-    window.addEventListener('hashchange', () => {
-      this.setState({
-        route: window.location.hash.substr(1)
-      })
-    })
+  componentDidMount:function(){
+
   },
 
-  render() {
-    let Child
-    switch (this.state.route) {
-      case '/events': Child = SearchListing; break;
-      default:      Child = Home;
-    }
-
-    return (
-      <div>
-        <h1>App</h1>
-        <ul>
-          <li><a href="#/">Home</a></li>
-          <li><a href="#/events">Events</a></li>
-        </ul>
-        <Child/>
-      </div>
-    )
+  render:function(){
+    return <h2>ERR</h2>;
   }
 })
+
+
 
 React.render(<App />, document.body)
