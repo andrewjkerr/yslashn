@@ -4,6 +4,18 @@ var Router = require('react-router-component');
 var Locations = Router.Locations;
 var Location = Router.Location;
 
+var Navbar = React.createClass({
+  render: function() {
+    return (
+      <nav>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/search'>Events</a></li>
+        </ul>
+      </nav>
+    );
+  }
+})
 
 class Home extends Component {
   render() {
@@ -25,10 +37,13 @@ class Home extends Component {
 var App = React.createClass({
   render: function(){
     return (
-      <Locations>
-        <Location path="/" handler={Home} />
-        <Location path = "/search" handler={SearchListing}/>
-      </Locations>
+      <div>
+        <Navbar />
+        <Locations>
+          <Location path="/" handler={Home} />
+          <Location path = "/search" handler={SearchListing}/>
+        </Locations>
+      </div>
     );
   }
 })
