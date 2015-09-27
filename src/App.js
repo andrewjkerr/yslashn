@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import { NICE, SUPER_NICE , BASE_API} from './colors';
 
-// not using an ES6 transpiler
-var ReactRouter = require('react-router')
-var Router = ReactRouter.Router
-var Route = ReactRouter.Route
-var Link = ReactRouter.Link
-
 class Home extends Component {
   render() {
     return (
@@ -23,6 +17,18 @@ class Home extends Component {
       );
   }
 }
+
+class WebApp extends Component {
+
+}
+
+var Search = React.createClass({
+  render: function(){
+    <div className="asdf">
+    Error
+    </div>
+  }
+});
 
 var SearchListing = React.createClass({
   getInitialState:function(){
@@ -65,7 +71,7 @@ var SearchListing = React.createClass({
             <ul> 
 
             { events.map(function(l){
-              return <li><a href='/events'+{l.id}>{l.name}</a></li>
+              return <li id={l.id}><a href={l.id}>{l.name}</a></li>
             }) }
 
             </ul>
@@ -76,25 +82,13 @@ var SearchListing = React.createClass({
         }
       })
 
-var EventPage = React.createClass({
-  getInitialState:function(){
-
-  },
-
-  componentDidMount:function(){
-    
+export class App extends Component {
+  render() {
+    return (
+      <div>
+      <Home />
+      <SearchListing /> 
+      </div>
+      );
   }
-})
-
-React.render((
-  <Router>
-    <Route path="/" component={Home}>
-      <Route path="about" component={About}/>
-      <Route path="users" component={Users}>
-        <Route path="/user/:userId" component={User}/>
-      </Route>
-      <Route path="events/:eventId" component={EventPage}/>
-      <Route path="*" component={NoMatch}/>
-    </Route>
-  </Router>
-), document.body)
+}
