@@ -82,13 +82,39 @@ var SearchListing = React.createClass({
         }
       })
 
-export class App extends Component {
+const App = React.createClass({
+  getInitialState() {
+    return {
+      route: window.location.hash.substr(1)
+    }
+  },
+
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({
+        route: window.location.hash.substr(1)
+      })
+    })
+  },
+
   render() {
+    let Child
+    switch (this.state.route) {
+      case '/events': Child = SearchListing; break;
+      default:      Child = Home;
+    }
+
     return (
       <div>
-      <Home />
-      <SearchListing /> 
+        <h1>App</h1>
+        <ul>
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/events">Events</a></li>
+        </ul>
+        <Child/>
       </div>
-      );
+    )
   }
-}
+})
+
+React.render(<App />, document.body)
