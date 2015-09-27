@@ -80,7 +80,7 @@ var SearchListing = React.createClass({
 
         <ul> 
           { events.map(function(l){
-            return <li id={l.id}><a href='events/{l.id}'>{l.name}</a></li>
+            return <li id={l.id}><a href={'event/' + l.id}>{l.name}</a></li>
           }) }
         </ul>
       </div>
