@@ -1,23 +1,28 @@
 -provide(:title, "#{@event.name}")
 
-h1
-    =@event.name
-    |  by  
-    =link_to @event.user.name, @event.user
+.container
+    h2.center-align
+        =@event.name
+        |  by  
+        =link_to @event.user.name, @event.user
 
-h2 Questions
-- if @event.questions.size == 0
-    p
-        | There are currently no questions! Why don't you 
-        =link_to 'ask one?', new_question_path(event_id: @event.id)
-- else
-    p
-        =link_to 'Ask a new question!', new_question_path(event_id: @event.id)
-    ul
-        - @event.questions.each do |question|
-            li
-                =link_to question.text, question
-                |  | Yes: 
-                = question.yes_count
-                |  , No: 
-                = question.no_count
+    h4 Questions
+    - if @event.questions.size == 0
+        p There are currently no questions! Why don't you ask one?
+    - else
+        - @event.questions.each_with_index do |question, index|
+            .row
+                .col.s12.m12
+                    .card.blue.darken-1
+                        .card-content.white-text
+                            p
+                                = question.text
+                            p
+                                | Yes: 
+                                = question.yes_count
+                                |  No: 
+                                = question.no_count
+                        .card-action.white-text
+                            =link_to 'Answer it!', question
+
+    =link_to 'New question', new_question_path(event_id: @event.id), class: 'waves-effect waves-light btn-large orange'

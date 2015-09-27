@@ -1,12 +1,13 @@
 -provide(:title, "Create event")
 
-h1 Create event
+.container
+    h1 Create event
 
-= form_for(@event) do |f|
+    = form_for(@event) do |f|
 
-  = render 'shared/error_messages'
-  
-  = f.label :name
-  = f.text_field :name
+      = render 'shared/error_messages'
+      
+      = f.label :name
+      = f.text_field :name
 
-  = f.submit "Create my event"
+      = f.submit "Create my event"

@@ -1,18 +1,19 @@
 -provide(:title, "Question for #{@question.event.name}")
 
-h1
-    |  Question asked by  
-    =link_to @question.user.name, @question.user
-    |  for 
-    =link_to @question.event.name, @question.event
+.container
+    h2
+        = @question.text
+    p
+        i
+            |  Asked by  
+            =link_to @question.user.name, @question.user
+            |  for 
+            =link_to @question.event.name, @question.event
 
-p
-    = @question.text
+    = render 'shared/answers', answer: @answer, question_id: @question.id
 
-= render 'shared/answers', answer: @answer, question_id: @question.id
-
-p
-    | Yes: 
-    = @question.yes_count
-    |  No: 
-    = @question.no_count
+    p
+        | Yes: 
+        = @question.yes_count
+        |  No: 
+        = @question.no_count

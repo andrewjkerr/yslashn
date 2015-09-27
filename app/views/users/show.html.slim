@@ -1,5 +1,24 @@
 -provide(:title, "#{@user.name}")
 
-=@user.name
-| , 
-=@user.email
+.container
+    h1.center-align
+        =@user.name
+
+    h3.center-align
+        | Karma: 
+        =@user.karma
+
+    h3 Events
+    .collection
+        - @user.events.each do |event|
+            =link_to event.name, event, class: 'collection-item'
+
+    h3 Questions
+    .collection
+        - @user.questions.each do |question|
+            =link_to question.text, question, class: 'collection-item'
+
+    h3 Answers
+    .collection
+        - @user.answers.each do |answer|
+            =link_to answer.is_yes?, answer, class: 'collection-item'

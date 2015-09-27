@@ -1,14 +1,15 @@
 -provide(:title, "Create question")
 
-h1 Create question
+.container
+    h1 Create question
 
-= form_for(@question) do |f|
+    = form_for(@question) do |f|
 
-  = render 'shared/error_messages'
-  
-  = f.label :text
-  = f.text_field :text
+      = render 'shared/error_messages'
+      
+      = f.label :text
+      = f.text_field :text
 
-  = f.hidden_field :event_id, value: @event.id
+      = f.hidden_field :event_id, value: @event.id
 
-  = f.submit "Create my question"
+      = f.submit "Create my question"

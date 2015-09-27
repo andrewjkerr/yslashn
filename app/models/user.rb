@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 255 },
                      format: { with: VALID_EMAIL_REGEX },
                      uniqueness: true
-    validates :password, length: { minimum: 6 }
 
     has_secure_password
 
@@ -24,6 +23,6 @@ class User < ActiveRecord::Base
         when 'question'
             self.karma += 1
         end
-        self.save
+        self.save!
     end
 end

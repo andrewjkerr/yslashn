@@ -22,7 +22,6 @@ class QuestionsController < ApplicationController
         @question = Question.new(question_params)
         if @question.save
             current_user.add_karma!('question')
-            flash[:success] = "Question creation was successful!"
             redirect_to @question
         else
             render 'new'

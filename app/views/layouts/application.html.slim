@@ -16,8 +16,17 @@ html
     = render 'shared/nav'
 
     -flash.each do |message_type, message|
-      div class="alert alert-#{message_type}"
-        = message
+      .collection
+        - case message_type
+        - when 'error'
+          li.collection-item.red
+            = message
+        - when 'success'
+          li.collection-item.green
+            = message
+        - else
+          li.collection-item.orange
+            = message
       br
     = yield
     br

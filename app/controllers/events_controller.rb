@@ -16,7 +16,6 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         if @event.save
             current_user.add_karma!('event')
-            flash[:success] = "Event creation was successful!"
             redirect_to @event
         else
             render 'new'

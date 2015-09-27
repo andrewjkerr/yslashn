@@ -2,11 +2,13 @@
 
   = render 'shared/error_messages'
   
-  = f.radio_button :is_yes, true
-  = f.label :is_yes_true, "Yes"
-  = f.radio_button :is_yes, false
-  = f.label :is_yes_false, "No"
+  p
+    = f.radio_button :is_yes, true, class: 'orange'
+    = f.label :is_yes_true, "Yes"
+  p
+    = f.radio_button :is_yes, false
+    = f.label :is_yes_false, "No"
 
   = f.hidden_field :question_id, value: question_id
 
-  = f.submit "Create my question"
+  = f.submit "This is my final answer!"
