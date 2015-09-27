@@ -1,0 +1,13 @@
+- if @user && @user.errors.any?
+  h2 
+    = pluralize(@user.errors.count, 'error')
+  ul
+    - @user.errors.full_messages.each do |msg|
+      li = msg
+
+- elsif @event && @event.errors.any?
+  h2 
+    = pluralize(@event.errors.count, 'error')
+  ul
+    - @event.errors.full_messages.each do |msg|
+      li = msg

@@ -1,0 +1,13 @@
+-provide(:title, 'Events')
+
+h1 Events
+
+- if @current_user
+    = link_to 'New event', new_event_path
+- else
+    = link_to 'Login!', login_path
+
+ul
+- @events.each do |event|
+    li
+        = event.name
