@@ -12,7 +12,9 @@ html
     script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"
     = csrf_meta_tags
 
-  body.blue.lighten-1.white-text
+  body.black-text
+    = render 'shared/nav'
+
     -flash.each do |message_type, message|
       div class="alert alert-#{message_type}"
         = message

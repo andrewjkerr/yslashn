@@ -1,24 +1,13 @@
 -provide(:title, "Home")
-.container
-	.center-align.white-text
-		h1 Y/N
-		h4 Local, Crowdsourced Solutions to Yes/No Questions.
-		br
-		ul.collection.black-text
-			li.collection-item.avatar
-				.badge.align-left 14
-				.title Is the food truck line long?
-				p. By Robert
-				br
-				p. Last updated 24 seconds ago
 
-				a.secondary-content.black-text
-					i.material-icons thumbs_up
-				a.secondary-content.black-text
-					i.material-icons thumbs_down
-		h5 Is the food truck line long?
-		h5 Is the award ceremony taking place?
-		h5 Should I freestyle rap?
-		br
-		button.waves-effect.waves-dark.btn.white
-		    = link_to 'Check It Out!', login_path
+.container style='padding: 25px'
+    .center-align
+        h1 Y/N
+        h5 Local, Crowdsourced Solutions to Yes/No Questions.
+        br
+        h6 Is the food truck line long?
+        h6 Is the printer working?
+        h6 Should I freestyle rap?
+        br
+        button.waves-effect.waves-dark.btn.white
+            = link_to 'Check It Out!', signup_path
